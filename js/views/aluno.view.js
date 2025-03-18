@@ -1,0 +1,6 @@
+// Classes
+class AlunoView {
+    constructor() {
+
+    }
+}
