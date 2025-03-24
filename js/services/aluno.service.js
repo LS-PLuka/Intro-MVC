@@ -5,7 +5,7 @@ class AlunoService {
     }
 
     add(aluno) {
-        if(aluno instanceof AlunoModel) {
+        if(!aluno instanceof AlunoModel) {
             throw new Error('O aluno deve ser uma instância de AlunoModel');
         };
         
