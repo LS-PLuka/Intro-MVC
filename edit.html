@@ -102,10 +102,12 @@
             />
           </div>
          
-          <div class="input-field col s4">
+          <div class="input-field col s12">
             <button class="btn" type="submit" name="action">
                 Cadastrar
-              </button>
+            </button>
+
+            <a href="index.html" class="btn">Cancelar</a>
           </div>
         </div>
       </form>
@@ -116,41 +118,14 @@
     <script src="js/models/aluno.model.js"></script>
     <script src="js/services/aluno.service.js"></script>
 
-    <script>
-      const alunos = [
-        {
-          nome: "Fulano Silva",
-          notas: {
-            backend_1: [1, 1, 2, 2],
-            frontend_2: [2, 2, 2, 2],
-            bancodados: [2, 2, 3, 3],
-            ferramentas: [3, 3, 3, 3],
-          },
-        },
-        {
-          nome: "Marcelo Souza",
-          notas: {
-            backend_1: [4, 4, 4, 4],
-            frontend_2: [4, 4, 5, 5],
-            bancodados: [5, 5, 6, 6],
-            ferramentas: [7, 7, 8, 9],
-          },
-        },
-      ];
-      
+    <script>      
       const alunoService = new AlunoService();
-      alunos.forEach((aluno) => {
-        alunoService.add(new AlunoModel(aluno));
-      });
-
       const paramsString = window.location.search;
-      console.log(paramsString);
-
       const URLParams = new URLSearchParams(paramsString);
       const alunoId = parseInt(URLParams.get('id'));
-      console.log(alunoId);
       let aluno = alunoService.searchById(alunoId);
-      console.log(aluno);
+
+      document.getElementById('first_name').value = aluno.nome;
     </script>
   </body>
 </html>
